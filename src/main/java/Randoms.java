@@ -6,15 +6,10 @@ public class Randoms implements Iterable<Integer> {
     private final int min;
     private final int max;
     private Random random = new Random();
-    private ArrayList<Integer> numbers; // в листе будет храниться диапозон чисел;
 
     public Randoms(int min, int max) {
         this.min = min;
         this.max = max;
-        this.numbers = new ArrayList<>();
-        for (int i = min; i <= max; i++) {
-            numbers.add(i);
-        }
     }
 
     @Override
@@ -28,7 +23,8 @@ public class Randoms implements Iterable<Integer> {
 
             @Override
             public Integer next() { // с помощью вызова метода next() можно получить следующий элемент;
-                return numbers.get(random.nextInt(numbers.size()));
+                int difference = max - min;
+                return random.nextInt(difference + 1) + min;
             }
         };
     }
