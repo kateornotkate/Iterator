@@ -23,8 +23,7 @@ public class Randoms implements Iterable<Integer> {
 
             @Override
             public Integer next() { // с помощью вызова метода next() можно получить следующий элемент;
-                int difference = max - min;
-                return random.nextInt(difference + 1) + min;
+                return min + random.nextInt(max - min) + 1;
             }
         };
     }
